@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Latihan jQuery Keren</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <style>
+    {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #f0f0f0;
+      margin: 0;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+    p {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 20px 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+      max-width: 400px;
+      font-size: 1.2rem;
+      margin: 15px 0;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+      user-select: none;
+    }
+    p:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+    }
+
+    .button-group {
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+    }
+
+    button {
+      background: #5a4bcf;
+      border: none;
+      color: #f0f0f0;
+      padding: 14px 28px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 6px 12px rgba(90, 75, 207, 0.5);
+      transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+      user-select: none;
+    }
+    button:hover {
+      background-color: #7b66d9;
+      box-shadow: 0 8px 16px rgba(123, 102, 217, 0.7);
+      transform: translateY(-3px);
+    }
+    button:active {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(90, 75, 207, 0.5);
+    }
+  </style>
+</head>
+<body>
+    <h1>Selamat Datang Programmer</h1>
+  <p id="paragraf">Ini Adalah Paragraf Pertama.</p>
+  <p id="paragraf2">Ini Adalah Paragraf Kedua.</p>
+
+  <div class="button-group">
+    <button id="tombol">Sembunyikan Semua</button>
+    <button id="tombol2">Tampilkan Semua</button>
+    <button id="tampilan1">Tampilan 1</button>
+    <button id="tampilan2">Tampilan 2</button>
+    <button id="tukar">Tukar Tulisan</button>
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      $("#tombol").click(function () {
+        $("#paragraf, #paragraf2").fadeOut("slow");
+      });
+
+      $("#tombol2").click(function () {
+        $("#paragraf, #paragraf2").fadeIn("slow");
+      });
+
+      $("#tampilan1").click(function () {
+        $("#paragraf").fadeIn("slow");
+        $("#paragraf2").fadeOut("slow");
+      });
+
+      $("#tampilan2").click(function () {
+        $("#paragraf").fadeOut("slow");
+        $("#paragraf2").fadeIn("slow");
+      });
+
+      $("#tukar").click(function () {
+        let text1 = $("#paragraf").text();
+        let text2 = $("#paragraf2").text();
+        $("#paragraf").text(text2);
+        $("#paragraf2").text(text1);
+      });
+    });
+  </script>
+</body>
+</html>
